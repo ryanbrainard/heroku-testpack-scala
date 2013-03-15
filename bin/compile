@@ -12,7 +12,7 @@ SBT_USER_HOME=".sbt_home"
 SBT_USER_HOME_ABSOLUTE="$BUILD_DIR/$SBT_USER_HOME"
 SBT_BINDIR="$SBT_USER_HOME"/bin
 SBT_JAR="sbt-launch-0.11.3-2.jar"
-SBT_TASKS="'test-only -- junitxml'"
+SBT_TASKS="test-only -- junitxml"
 
 cd $BUILD_DIR
 
@@ -23,4 +23,4 @@ echo "-----> Running: sbt $SBT_TASKS"
 test -e "$SBT_BINDIR"/sbt.boot.properties && PROPS_OPTION="-Dsbt.boot.properties=$SBT_BINDIR/sbt.boot.properties"
 export HOME="$SBT_USER_HOME_ABSOLUTE"
  
-java -Xms768M -Xmx1024M -XX:MaxPermSize=512M -XX:+CMSClassUnloadingEnabled -Dfile.encoding=UTF8 -Duser.home="$SBT_USER_HOME_ABSOLUTE" -Dsbt.log.noformat=true -Divy.default.ivy.user.dir="$SBT_USER_HOME_ABSOLUTE/.ivy2" $PROPS_OPTION -jar "$SBT_BINDIR"/$SBT_JAR $SBT_TASKS 2>&1
+java -Xms768M -Xmx1024M -XX:MaxPermSize=512M -XX:+CMSClassUnloadingEnabled -Dfile.encoding=UTF8 -Duser.home="$SBT_USER_HOME_ABSOLUTE" -Dsbt.log.noformat=true -Divy.default.ivy.user.dir="$SBT_USER_HOME_ABSOLUTE/.ivy2" $PROPS_OPTION -jar "$SBT_BINDIR"/$SBT_JAR "$SBT_TASKS" 2>&1
