@@ -15,7 +15,7 @@ SBT_TASKS="test-only -- junitxml"
 cd $BUILD_DIR
 
 mkdir -p "$SBT_USER_HOME/.sbt/plugins"
-cp $OPT_DIR/JUnitXmlPlugin.scala $SBT_USER_HOME/.sbt/plugins
+cp $BUILD_DIR/opt/JUnitXmlPlugin.scala $SBT_USER_HOME/.sbt/plugins
 
 echo "-----> Running: sbt $SBT_TASKS"
 test -e "$SBT_BINDIR"/sbt.boot.properties && PROPS_OPTION="-Dsbt.boot.properties=$SBT_BINDIR/sbt.boot.properties"
