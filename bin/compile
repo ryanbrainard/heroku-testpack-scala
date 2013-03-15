@@ -10,7 +10,7 @@ SBT_USER_HOME=".sbt_home"
 SBT_USER_HOME_ABSOLUTE="$BUILD_DIR/$SBT_USER_HOME"
 SBT_BINDIR="$SBT_USER_HOME"/bin
 SBT_JAR="sbt-launch-0.11.3-2.jar"
-SBT_TASKS="test-only -- junitxml"# chdir as sbt expects
+SBT_TASKS="test-only -- junitxml"
 
 cd $BUILD_DIR
 
