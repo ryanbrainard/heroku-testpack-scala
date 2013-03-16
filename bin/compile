@@ -24,3 +24,8 @@ test -e "$SBT_BINDIR"/sbt.boot.properties && PROPS_OPTION="-Dsbt.boot.properties
 export HOME="$SBT_USER_HOME_ABSOLUTE"
  
 java -Xms768M -Xmx1024M -XX:MaxPermSize=512M -XX:+CMSClassUnloadingEnabled -Dfile.encoding=UTF8 -Duser.home="$SBT_USER_HOME_ABSOLUTE" -Dsbt.log.noformat=true -Divy.default.ivy.user.dir="$SBT_USER_HOME_ABSOLUTE/.ivy2" $PROPS_OPTION -jar "$SBT_BINDIR"/$SBT_JAR "$SBT_TASKS" 2>&1
+
+cd target
+ls | grep -v "test-reports" | xargs rm -rf
+cd ..
+ls | grep -v "target" | xargs rm -rf
